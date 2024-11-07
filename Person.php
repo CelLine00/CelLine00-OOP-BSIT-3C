@@ -21,4 +21,34 @@ class Person {
         return $this->address;
     }
 
+    public function getAge() {
+        return $this->age;
+    }
+
+     public function getcompanyName() {
+        return $this->companyName;
+    }
+
+    public function setName($name) {
+        $this->name = $name;
+    }
+
+    public function setAddress($address) {
+        $this->address = $address;
+    }
+
+    public function setAge($age) {
+        $this->age = $age;
+    }
+
+    public function setCompanyName($companyName) {
+        $this->companyName = $companyName;
+    }
+
+    public function __toString() {
+        return "Name: $this->name, Address: $this->address, Age: $this->age, Company Name: $this->companyName";
+    }
+}
+        
+
     
