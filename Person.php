@@ -4,33 +4,44 @@ class Person {
     private $name;
     private $address;
     private $age;
-    private $companyName;
 
-    public function __construct($name, $address, $age, $companyName) {
+    public function __construct($name, $address, $age) {
         $this->name = $name;
         $this->address = $address;
         $this->age = $age;
-        $this->companyName = $companyName;
     }
 
     public function getName() {
         return $this->name;
     }
 
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
     public function getAddress() {
         return $this->address;
     }
+
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
+
 
     public function getAge() {
         return $this->age;
     }
 
-     public function getcompanyName() {
-        return $this->companyName;
+    public function setAge($age)
+    {
+        $this->age = $age;
     }
 
-    public function __toString() {
-        return $this->name . " | " . $this->address . " | " . $this->age . " | " . $this->companyName;
+    public function toString()
+    {
+        return "Name: $this->name, Address: $this->address, Age: $this->age";
     }
 }
 ?>
