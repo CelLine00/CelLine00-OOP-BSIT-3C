@@ -117,7 +117,11 @@ class Main {
     }
 
     public function addOnsHE($name, $address, $age, $cName) {
-        $this->repeat();
+            $hoursWorked = (float)readline("Enter hours worked: ");
+            $rate = (float)readline("Enter hourly rate: ");
+
+            $this->roster->add(new HourlyEmployee($name, $address, $age, $cName, $hoursWorked, $rate));
+            $this->repeat();
     }
 
     public function addOnsPE($name, $address, $age, $cName) {
