@@ -74,7 +74,7 @@ class Main {
         echo "--- Add Employee ---\n";
         $name = readline("Enter name: ");
         $address = readline("Enter address: ");
-        $age = (int)readline("Enter age: ");
+        $age = readline("Enter age: ");
         $companyName = readline("Enter company name: ");
         $this->empType($name, $address, $age, $companyName);
     }
@@ -91,10 +91,13 @@ class Main {
 
         switch ($type) {
             case 1:
+                $this->addOnsCE($name, $address, $age, $cName);
                 break;
             case 2:
+                $this->addOnsHE($name, $address, $age, $cName);
                 break;
             case 3:
+                $this->addOnsPE($name, $address, $age, $cName);
                 break;
             default:
                 echo "Invalid input. Please try again.\n";
@@ -105,6 +108,11 @@ class Main {
     }
 
     public function addOnsCE($name, $address, $age, $cName) {
+        $regularSalary = (float)readline("Enter regular salary: ");
+        $itemsSold = (int)readline("Enter number of items sold: ");
+        $commissionRate = (float)readline("Enter commission rate: ");
+
+        $this->roster->add(new CommissionEmployee($name, $address, $age, $cName, $regularSalary, $itemsSold, $commissionRate));
         $this->repeat();
     }
 
