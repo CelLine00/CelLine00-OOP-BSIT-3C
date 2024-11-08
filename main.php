@@ -35,15 +35,20 @@ class Main {
         while ($this->repeat) {
             $this->clear();
             $this->menu();
+            $choice = (int)readline("Select an option: ");
 
             switch ($choice) {
                 case 1:
+                $this->addMenu();
                     break;
                 case 2:
+                $this->deleteMenu();
                     break;
                 case 3:
+                $this->otherMenu();
                     break;
                 case 0:
+                $this->repeat = false;
                     break;
                 default:
                     echo "Invalid input. Please try again.\n";
@@ -65,6 +70,13 @@ class Main {
     }
 
     public function addMenu() {
+        $this->clear();
+        echo "--- Add Employee ---\n";
+        $name = readline("Enter name: ");
+        $address = readline("Enter address: ");
+        $age = (int)readline("Enter age: ");
+        $companyName = readline("Enter company name: ");
+        $this->empType($name, $address, $age, $companyName);
     }
 
     public function empType($name, $address, $age, $cName) {
