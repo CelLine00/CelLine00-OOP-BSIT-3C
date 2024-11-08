@@ -1,5 +1,12 @@
 <?php
 
+require_once 'Person.php';
+require_once 'Employee.php';
+require_once 'CommissionEmployee.php';
+require_once 'HourlyEmployee.php';
+require_once 'PieceWorker.php';
+require_once 'EmployeeRoster.php';
+
 class Main {
 
     private EmployeeRoster $roster;
@@ -16,8 +23,10 @@ class Main {
             echo "Invalid input. Please try again.\n";
             readline("Press \"Enter\" key to continue...");
             $this->start();
+        } else {
+            $this->roster = new EmployeeRoster($this->size);
+            $this->entrance();
         }
-
     }
 
     public function entrance() {
