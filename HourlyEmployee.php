@@ -1,11 +1,11 @@
 <?php
-
-class HourlyEmployee {
-    private $name;
+require_once 'Employee.php';
+class HourlyEmployee extends Employee
+{
     private $hoursWorked;
-    private $hourlyRate;
+    private $rate;
 
-    public function __construct($name, $address, $age, $companyName, $id, $hoursWorked, $hourlyRate) {
+    public function __construct($name, $address, $age, $companyName, $id, $hoursWorked, $rate) {
         $this->name = $name;
         $this->hoursWorked = $hoursWorked;
         $this->hourlyRate = $hourlyRate;
