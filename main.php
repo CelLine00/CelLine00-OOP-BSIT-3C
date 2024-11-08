@@ -117,26 +117,35 @@ class Main {
     }
 
     public function addOnsHE($name, $address, $age, $cName) {
-            $hoursWorked = (float)readline("Enter hours worked: ");
-            $rate = (float)readline("Enter hourly rate: ");
+         $hoursWorked = (float)readline("Enter hours worked: ");
+         $rate = (float)readline("Enter hourly rate: ");
 
-            $this->roster->add(new HourlyEmployee($name, $address, $age, $cName, $hoursWorked, $rate));
-            $this->repeat();
+         $this->roster->add(new HourlyEmployee($name, $address, $age, $cName, $hoursWorked, $rate));
+         $this->repeat();
     }
 
     public function addOnsPE($name, $address, $age, $cName) {
+        $piecesProduced = (int)readline("Enter number of pieces produced: ");
+        $ratePerPiece = (float)readline("Enter rate per piece: ");
+
+        $this->roster->add(new PieceWorker($name, $address, $age, $cName, $piecesProduced, $ratePerPiece));
         $this->repeat();
     }
 
     public function deleteMenu() {
-        $this->clear();
-
+        $this->clear();    
         echo "***List of Employees on the current Roster***\n";
-
-        echo "\n[0] Return\n";
-
+        $this->roster->display(); 
+        $id = readline("Enter the ID of the employee to delete (0 to return): ");
+       
+        if ($id === 0) {
+            $this->entrance();
+        } else {
+            $this->roster->delete($id); 
+            echo "Employee deleted.\n";
         readline("\nPress \"Enter\" key to continue...");
         $this->deleteMenu();
+        }
     }
 
     public function otherMenu() {
@@ -149,12 +158,18 @@ class Main {
 
         switch ($choice) {
             case 1:
+            $this->displayMenu();
                 break;
             case 2:
+            $this->countMenu();
                 break;
             case 3:
+            $this->roster->payroll(); 
+            readline("Press \"Enter\" key to continue...");
+            $this->otherMenu();
                 break;
             case 0:
+            $this->entrance();
                 break;
 
             default:
