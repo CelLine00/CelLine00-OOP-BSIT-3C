@@ -2,10 +2,11 @@
 
 require_once 'Person.php';
 
-class Employee extends Person {
-    protected $id;
+abstract class Employee extends Person {
+    private $companyName;
 
-    public function __construct($name, $address, $age, $companyName) {
+    public function __construct($name, $address, $age, $companyName)
+        {
         parent::__construct($name, $address, $age, $companyName);
     }
 
