@@ -5,18 +5,24 @@ class HourlyEmployee extends Employee
     private $hoursWorked;
     private $rate;
 
-    public function __construct($name, $address, $age, $companyName, $id, $hoursWorked, $rate) {
-        $this->name = $name;
+    public function __construct($name, $address, $age, $companyName, $id, $hoursWorked, $rate)
+    {
+        parent::__construct($name, $address, $age, $companyName);
         $this->hoursWorked = $hoursWorked;
-        $this->hourlyRate = $hourlyRate;
+        $this->rate = $rate;
     }
 
-    public function calculateEarnings() {
-        return $this->hoursWorked * $this->hourlyRate;
+    public function earnings()
+    {
+        if ($this->hoursWorked > 40) {
+            return (40 * $this->rate) + (($this->hoursWorked - 40) * $this->rate * 1.5);
+        }
+        return $this->hoursWorked * $this->rate;
     }
 
-    public function __toString() {
-        return "HourlyEmployee: {$this->name}, Hours Worked: {$this->hoursWorked}, Hourly Rate: {$this->hourlyRate}";
+    public function toString()
+    {
+        return parent::toString() . ", Hours Worked: $this->hoursWorked, Rate: $this->rate";
     }
 }
 
