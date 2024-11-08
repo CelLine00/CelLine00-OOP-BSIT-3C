@@ -191,14 +191,19 @@ class Main {
 
         switch ($choice) {
             case 0:
+            $this->entrance();
                 break;
             case 1:
+            $this->roster->display();
                 break;
             case 2:
+            $this->roster->displayCE();
                 break;
             case 3:
+            $this->roster->displayHE();
                 break;
             case 4:
+            $this->roster->displayPE();
                 break;
 
             default:
@@ -221,15 +226,20 @@ class Main {
 
         switch ($choice) {
             case 0:
+            $this->entrance();
                 break;
 
             case 1:
+             echo "Total Employees: " . $this->roster->count() . "\n";
                 break;
             case 2:
+            echo "Commission Employees: " . $this->roster->countCE() . "\n";
                 break;
             case 3:
+            echo "Hourly Employees: " . $this->roster->countHE() . "\n";
                 break;
             case 4:
+            echo "Piece Workers: " . $this->roster->countPE() . "\n";
                 break;
 
             default:
@@ -262,3 +272,8 @@ class Main {
         }
     }
 }
+
+
+$main = new Main();
+$main->start();
+
