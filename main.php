@@ -256,23 +256,26 @@ class Main {
         system('clear');
     }
 
-    public function repeat() {
-        echo "Employee Added!\n";
-        if ($this->roster->count() < $this->size) {
-            $c = readline("Add more ? (y to continue): ");
-            if (strtolower($c) == 'y')
-                $this->addMenu();
-            else
-                $this->entrance();
+    public function repeat()
+{
+    echo "Employee Added!\n";
 
-        } else {
-            echo "Roster is Full\n";
-            readline("Press \"Enter\" key to continue...");
-            $this->entrance();
-        }
+    
+    if ($this->roster->count() >= $this->size) {
+        echo "Roster is Full\n";
+        readline("Press \"Enter\" key to continue...");
+        $this->entrance();
+        return;  
+    }
+
+    $c = readline("Add more? (y to continue): ");
+    if (strtolower($c) == 'y') {
+        $this->addMenu();
+    } else {
+        $this->entrance();
     }
 }
-
+}
 
 $main = new Main();
 $main->start();
