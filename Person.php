@@ -1,10 +1,10 @@
 <?php
 
 class Person {
-    protected $name;
-    protected $address;
-    protected $age;
-    protected $companyName;
+    private $name;
+    private $address;
+    private $age;
+    private $companyName;
 
     public function __construct($name, $address, $age, $companyName) {
         $this->name = $name;
